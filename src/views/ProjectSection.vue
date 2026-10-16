@@ -48,7 +48,7 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
   <section id="projects" class="py-12 sm:py-16 px-4 sm:px-6 max-w-6xl mx-auto scroll-mt-20">
     <!-- Header Section Projects -->
     <h2
-      class="text-2xl md:text-3xl font-bold text-white mb-6 sm:mb-8 border-l-4 border-indigo-500 pl-4"
+      class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 sm:mb-8 border-l-4 border-blue-600 pl-4"
     >
       Featured Projects
     </h2>
@@ -58,11 +58,11 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
       <div
         v-for="project in projects"
         :key="project.id"
-        class="bg-slate-900/50 border border-slate-800 rounded-2xl p-6 hover:border-indigo-500/50 transition flex flex-col justify-between"
+        class="bg-white border border-slate-200/80 rounded-2xl p-6 hover:border-blue-400/60 hover:shadow-md transition-all duration-300 shadow-xs flex flex-col justify-between"
       >
         <div>
-          <h3 class="text-xl font-semibold text-white">{{ project.title }}</h3>
-          <p class="text-slate-400 mt-2 text-sm leading-relaxed">
+          <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{{ project.title }}</h3>
+          <p class="text-slate-600 mt-2 text-sm leading-relaxed">
             {{ project.description }}
           </p>
         </div>
@@ -72,7 +72,7 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
           <span
             v-for="tag in project.tags"
             :key="tag"
-            class="px-2.5 py-1 text-xs bg-slate-800 text-slate-300 rounded-md border border-slate-700"
+            class="px-2.5 py-1 text-xs bg-slate-100 text-slate-700 rounded-md border border-slate-200 font-medium"
           >
             {{ tag }}
           </span>
@@ -94,15 +94,15 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
       <div class="flex items-center justify-between mb-8">
         <div>
           <h2
-            class="text-2xl md:text-3xl font-bold text-white border-l-4 border-indigo-500 pl-4"
+            class="text-2xl md:text-3xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4"
           >
             Tech Stack & Ecosystem
           </h2>
-          <p class="text-sm text-slate-400 pl-4 mt-1">
+          <p class="text-sm text-slate-600 pl-4 mt-1">
             Engineered across backend architectures & modern frontend interfaces
           </p>
         </div>
-        <span class="text-xs text-slate-500 hidden sm:inline-block">
+        <span class="text-xs text-slate-400 hidden sm:inline-block">
           Hover to pause · Drag to inspect
         </span>
       </div>
@@ -111,12 +111,12 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
       <div class="relative w-full overflow-hidden py-2 space-y-4">
         <!-- Efek Vignette / Gradient Mask Kiri -->
         <div
-          class="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-slate-950 to-transparent z-10"
+          class="pointer-events-none absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-slate-50/90 to-transparent z-10"
         ></div>
 
         <!-- Efek Vignette / Gradient Mask Kanan -->
         <div
-          class="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-slate-950 to-transparent z-10"
+          class="pointer-events-none absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-slate-50/90 to-transparent z-10"
         ></div>
 
         <!-- =================================================================== -->
@@ -128,7 +128,7 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
             <div
               v-for="skill in backendSkills"
               :key="`be-orig-${skill.name}`"
-              class="flex-shrink-0 flex items-center gap-3 px-4 py-3 bg-slate-900/80 border border-slate-800/80 rounded-2xl hover:border-slate-600 transition-all duration-300 hover:scale-105 shadow-sm group select-none"
+              class="shrink-0 flex items-center gap-3 px-4 py-3 bg-white border border-slate-200/90 rounded-2xl hover:border-blue-400/60 transition-all duration-300 hover:scale-105 shadow-xs group select-none"
             >
               <img
                 :src="getIconUrl(skill.icon, skill.color)"
@@ -136,7 +136,7 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
                 class="w-6 h-6 object-contain transition-transform group-hover:rotate-6"
                 loading="lazy"
               />
-              <span class="text-sm font-medium text-slate-200 group-hover:text-white">
+              <span class="text-sm font-medium text-slate-800 group-hover:text-blue-600 transition-colors">
                 {{ skill.name }}
               </span>
               <span
@@ -150,7 +150,7 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
               v-for="skill in backendSkills"
               :key="`be-clone-${skill.name}`"
               aria-hidden="true"
-              class="flex-shrink-0 flex items-center gap-3 px-4 py-3 bg-slate-900/80 border border-slate-800/80 rounded-2xl hover:border-slate-600 transition-all duration-300 hover:scale-105 shadow-sm group select-none"
+              class="shrink-0 flex items-center gap-3 px-4 py-3 bg-white border border-slate-200/90 rounded-2xl hover:border-blue-400/60 transition-all duration-300 hover:scale-105 shadow-xs group select-none"
             >
               <img
                 :src="getIconUrl(skill.icon, skill.color)"
@@ -158,7 +158,7 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
                 class="w-6 h-6 object-contain transition-transform group-hover:rotate-6"
                 loading="lazy"
               />
-              <span class="text-sm font-medium text-slate-200 group-hover:text-white">
+              <span class="text-sm font-medium text-slate-800 group-hover:text-blue-600 transition-colors">
                 {{ skill.name }}
               </span>
               <span
@@ -178,7 +178,7 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
             <div
               v-for="skill in frontendSkills"
               :key="`fe-orig-${skill.name}`"
-              class="flex-shrink-0 flex items-center gap-3 px-4 py-3 bg-slate-900/80 border border-slate-800/80 rounded-2xl hover:border-slate-600 transition-all duration-300 hover:scale-105 shadow-sm group select-none"
+              class="shrink-0 flex items-center gap-3 px-4 py-3 bg-white border border-slate-200/90 rounded-2xl hover:border-blue-400/60 transition-all duration-300 hover:scale-105 shadow-xs group select-none"
             >
               <img
                 :src="getIconUrl(skill.icon, skill.color)"
@@ -186,7 +186,7 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
                 class="w-6 h-6 object-contain transition-transform group-hover:rotate-6"
                 loading="lazy"
               />
-              <span class="text-sm font-medium text-slate-200 group-hover:text-white">
+              <span class="text-sm font-medium text-slate-800 group-hover:text-blue-600 transition-colors">
                 {{ skill.name }}
               </span>
               <span
@@ -200,7 +200,7 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
               v-for="skill in frontendSkills"
               :key="`fe-clone-${skill.name}`"
               aria-hidden="true"
-              class="flex-shrink-0 flex items-center gap-3 px-4 py-3 bg-slate-900/80 border border-slate-800/80 rounded-2xl hover:border-slate-600 transition-all duration-300 hover:scale-105 shadow-sm group select-none"
+              class="shrink-0 flex items-center gap-3 px-4 py-3 bg-white border border-slate-200/90 rounded-2xl hover:border-blue-400/60 transition-all duration-300 hover:scale-105 shadow-xs group select-none"
             >
               <img
                 :src="getIconUrl(skill.icon, skill.color)"
@@ -208,7 +208,7 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
                 class="w-6 h-6 object-contain transition-transform group-hover:rotate-6"
                 loading="lazy"
               />
-              <span class="text-sm font-medium text-slate-200 group-hover:text-white">
+              <span class="text-sm font-medium text-slate-800 group-hover:text-blue-600 transition-colors">
                 {{ skill.name }}
               </span>
               <span

@@ -19,59 +19,60 @@ defineProps<{
 <template>
   <section
     id="about"
-    class="py-12 sm:py-16 md:py-20 px-4 sm:px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12 scroll-mt-20"
+    class="py-14 sm:py-20 md:py-24 px-4 sm:px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-14 scroll-mt-20"
   >
     <!--
-      Foto Profil dengan Dynamic Responsive Scale:
-      - w-36 h-36 (Mobile) -> sm:w-44 sm:h-44 (Tablet) -> md:w-48 md:h-48 (Desktop)
+      Foto Profil Minimalist Clean:
+      - Border putih solid dengan drop-shadow lembut (soft atmospheric depth)
+      - Aksen circle soft blue di belakang foto
     -->
     <div class="relative group shrink-0">
       <div
-        class="absolute -inset-1 bg-linear-to-r from-indigo-500 to-purple-600 rounded-full opacity-75 group-hover:opacity-100 transition duration-300 blur-sm"
+        class="absolute -inset-2 bg-blue-100 rounded-full blur-md opacity-70 group-hover:opacity-100 transition duration-300"
       ></div>
       <img
         :src="profile.avatar"
         :alt="profile.name"
-        class="relative w-36 h-36 sm:w-44 sm:h-44 md:w-48 md:h-48 object-cover rounded-full border-2 border-slate-800 shadow-xl"
+        class="relative w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 object-cover rounded-full border-4 border-white shadow-xl shadow-slate-200/60"
         loading="eager"
       />
     </div>
 
     <!-- Informasi Profil -->
     <div class="flex-1 text-center md:text-left">
+      <!-- Role Badge Pill -->
       <span
-        class="px-3 py-1 text-xs font-semibold bg-indigo-500/10 text-indigo-400 rounded-full border border-indigo-500/20 inline-block tracking-wide"
+        class="px-3.5 py-1.5 text-xs font-semibold bg-blue-50 text-blue-700 rounded-full border border-blue-200/60 inline-flex items-center gap-1.5 tracking-wide shadow-xs"
       >
+        <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
         {{ profile.role }}
       </span>
 
+      <!-- Nama Headline -->
       <h1
-        class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white mt-3 sm:mt-4 tracking-tight leading-tight"
+        class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mt-4 tracking-tight leading-tight"
       >
         {{ profile.name }}
       </h1>
 
+      <!-- Bio / Summary -->
       <p
-        class="text-slate-400 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg leading-relaxed max-w-2xl mx-auto md:mx-0"
+        class="text-slate-600 mt-4 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto md:mx-0"
       >
         {{ profile.bio }}
       </p>
 
-      <!--
-        CTA Buttons:
-        - Mobile (< 640px): Tombol mengambil lebar penuh atau berjejer rapi
-        - active:scale-95 memberikan feedback mikro-interaksi sentuhan layar
-      -->
-      <div class="mt-6 sm:mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-3 sm:gap-4">
+      <!-- CTA Buttons (Corporate Clean Style) -->
+      <div class="mt-8 flex flex-col sm:flex-row justify-center md:justify-start gap-3 sm:gap-4">
         <a
           href="#projects"
-          class="w-full sm:w-auto text-center px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-xl transition shadow-lg shadow-indigo-600/20 active:scale-95 text-sm sm:text-base"
+          class="w-full sm:w-auto text-center px-7 py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-full transition shadow-md shadow-blue-500/25 active:scale-95 text-sm sm:text-base"
         >
           View Projects
         </a>
         <a
           href="#contact"
-          class="w-full sm:w-auto text-center px-6 py-3 bg-slate-900 hover:bg-slate-800 text-slate-200 font-medium rounded-xl border border-slate-800 transition active:scale-95 text-sm sm:text-base"
+          class="w-full sm:w-auto text-center px-7 py-3.5 bg-white hover:bg-slate-50 text-slate-800 font-semibold rounded-full border border-slate-200/90 shadow-xs hover:border-slate-300 transition active:scale-95 text-sm sm:text-base"
         >
           Get in Touch
         </a>

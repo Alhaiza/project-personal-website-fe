@@ -19,13 +19,13 @@ defineProps<{
 </script>
 
 <template>
-  <section id="experience" class="py-16 px-6 max-w-6xl mx-auto scroll-mt-20">
-    <!-- Section Header dengan gaya estetika aksen border minimalis modern -->
+  <section id="experience" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto scroll-mt-20">
+    <!-- Section Header dengan gaya estetika modern corporate -->
     <div class="mb-10">
-      <h2 class="text-2xl md:text-3xl font-bold text-white mb-2 border-l-4 border-indigo-500 pl-4">
+      <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2 border-l-4 border-blue-600 pl-4">
         Professional Journey
       </h2>
-      <p class="text-slate-400 text-sm pl-4">
+      <p class="text-slate-600 text-sm pl-4">
         Track record of technical experience in software engineering and modern web architecture.
       </p>
     </div>

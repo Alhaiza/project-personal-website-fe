@@ -22,9 +22,9 @@ import ContactSection from "./views/ContactSection.vue";
 </script>
 
 <template>
-  <!-- Background utama Tailwind dengan warna gelap elegan -->
+  <!-- Background utama: Clean Modern Light Canvas (#FFFFFF / #F8FAFC) -->
   <div
-    class="min-h-screen bg-slate-950 text-slate-100 selection:bg-indigo-500 selection:text-white"
+    class="min-h-screen bg-slate-50/50 text-slate-900 selection:bg-blue-600 selection:text-white"
   >
     <Navbar />
 
@@ -75,11 +75,10 @@ import ContactSection from "./views/ContactSection.vue";
     </main>
 
     <footer
-      class="py-8 text-center text-slate-600 text-sm border-t border-slate-900 mt-12"
+      class="py-8 text-center text-slate-500 text-sm border-t border-slate-200/80 bg-white mt-16"
     >
       <p>
-        © 2026 Syarif Muhammad Alhaiza. Built with Vue 3, TypeScript & Tailwind
-        CSS.
+        © 2026 Syarif Muhammad Alhaiza. Built with Vue 3, TypeScript & Tailwind CSS.
       </p>
     </footer>
   </div>

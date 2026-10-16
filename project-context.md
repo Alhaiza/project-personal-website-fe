@@ -6,7 +6,7 @@ Dokumentasi arsitektur, modul teknis, dan cheatsheet pembelajaran frontend untuk
 
 ## 1. Arsitektur & Struktur Proyek
 
-Proyek ini dibangun menggunakan arsitektur modular Vue 3 Single File Component (SFC) dengan TypeScript strict typing dan Tailwind CSS v4.
+Proyek ini dibangun menggunakan arsitektur modular Vue 3 Single File Component (SFC) dengan TypeScript strict typing dan Tailwind CSS v4, mengadopsi tema desain Clean Modern Corporate Light Mode (Latar Putih #FFFFFF / #F8FAFC, Aksen Royal Blue #2563EB, Tipografi Gelap #0F172A).
 
 ```text
 personal-website/
