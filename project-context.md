@@ -40,14 +40,14 @@ personal-website/
 
 ## 2. Daftar Dependensi & Library Utama
 
-| Package | Versi | Peran Teknis |
-| :--- | :--- | :--- |
-| `vue` | `^3.5.42` | Frontend framework reaktif berbasis Virtual DOM & Composition API |
-| `tailwindcss` | `^4.3.3` | Utility-first CSS engine v4 tanpa legacy postcss config |
-| `@tailwindcss/vite` | `^4.3.3` | Integrasi native Tailwind engine langsung ke Vite pipeline |
-| `typescript` | `~6.0.2` | Static type checking dan type safety interface |
-| `vite` | `^8.3.0` | Next generation frontend tooling & development server HMR |
-| `vue-tsc` | `^3.3.11` | Type checking khusus template Vue SFC untuk production build |
+| Package             | Versi     | Peran Teknis                                                      |
+| :------------------ | :-------- | :---------------------------------------------------------------- |
+| `vue`               | `^3.5.42` | Frontend framework reaktif berbasis Virtual DOM & Composition API |
+| `tailwindcss`       | `^4.3.3`  | Utility-first CSS engine v4 tanpa legacy postcss config           |
+| `@tailwindcss/vite` | `^4.3.3`  | Integrasi native Tailwind engine langsung ke Vite pipeline        |
+| `typescript`        | `~6.0.2`  | Static type checking dan type safety interface                    |
+| `vite`              | `^8.3.0`  | Next generation frontend tooling & development server HMR         |
+| `vue-tsc`           | `^3.3.11` | Type checking khusus template Vue SFC untuk production build      |
 
 ---
 
@@ -95,12 +95,12 @@ npm run preview
 
 3. **Experience Timeline Module (`ExperienceSection.vue` & `TimelineItem.vue`)**
    - **Data Input (Props):** `experiences: Experience[]`
-   - **Struktur Hierarki Data:** Mendukung format *single role* langsung maupun *nested positions* (`positions?: ExperiencePosition[]`) untuk merepresentasikan transisi atau promosi jabatan dalam satu perusahaan yang sama (mirip arsitektur timeline LinkedIn).
+   - **Struktur Hierarki Data:** Mendukung format _single role_ langsung maupun _nested positions_ (`positions?: ExperiencePosition[]`) untuk merepresentasikan transisi atau promosi jabatan dalam satu perusahaan yang sama (mirip arsitektur timeline LinkedIn).
    - **Fungsi:** Visualisasi vertikal perjalanan karir/proyek dengan format informasi yang seragam dan seimbang (nama perusahaan, role, badge range tanggal terstandarisasi, deskripsi fungsional, dan tag teknologi), tanpa disparitas informasi seperti lokasi atau kalkulasi durasi parsial.
 
-4. **Showcase Projects Module (`ProjectSection.vue`)**
-   - **Data Input (Props):** `projects: Project[]`, `skills: string[]`
-   - **Fungsi:** Render kartu proyek interaktif dan chip stack keahlian.
+4. **Showcase Projects & Skills Module (`ProjectSection.vue`)**
+   - **Data Input (Props):** `projects: Project[]`, `skills: SkillItem[]`
+   - **Fungsi:** Render kartu proyek interaktif dan infinite horizontal marquee carousel untuk tech ecosystem dengan SVG brand icon dan brand hex color.
 
 5. **Interactive Contact Form (`ContactSection.vue`)**
    - **State Lokal:** `contactForm: ContactMessage` (reaktif via `ref`)
@@ -112,9 +112,9 @@ npm run preview
 
 ## 6. Impact Isolation Matrix
 
-| Skenario | Kasus | Penanganan Sistem |
-| :--- | :--- | :--- |
-| **Positive Case** | Data lengkap, form diisi valid | Tampilan dirender mulus, form menampilkan state sukses, transisi fade-in berjalan. |
-| **Negative Case** | Input form kosong / email tidak valid | TypeScript validator mendeteksi error sebelum submit, pesan kesalahan merah muncul di bawah field terkait. |
-| **Edge Case** | Array `experiences` atau `projects` kosong `[]` | Komponen menggunakan `v-if="items.length"` dengan fallback empty state informatif. |
-| **Anomaly Case** | Nilai string ekstrem (deskripsi sangat panjang) | Utility classes `break-words`, `line-clamp`, dan `leading-relaxed` mencegah overflow UI layout. |
+| Skenario          | Kasus                                           | Penanganan Sistem                                                                                          |
+| :---------------- | :---------------------------------------------- | :--------------------------------------------------------------------------------------------------------- |
+| **Positive Case** | Data lengkap, form diisi valid                  | Tampilan dirender mulus, form menampilkan state sukses, transisi fade-in berjalan.                         |
+| **Negative Case** | Input form kosong / email tidak valid           | TypeScript validator mendeteksi error sebelum submit, pesan kesalahan merah muncul di bawah field terkait. |
+| **Edge Case**     | Array `experiences` atau `projects` kosong `[]` | Komponen menggunakan `v-if="items.length"` dengan fallback empty state informatif.                         |
+| **Anomaly Case**  | Nilai string ekstrem (deskripsi sangat panjang) | Utility classes `break-words`, `line-clamp`, dan `leading-relaxed` mencegah overflow UI layout.            |

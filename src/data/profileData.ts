@@ -10,17 +10,25 @@ export const profileData: UserProfile = {
   bio: 'Bachelor of Computer Science graduate and Web Developer experienced in building reliable, scalable web applications using PHP, Laravel, TypeScript, and Docker. Strong focus on structured backend architecture, modern UI, and clean code.',
   avatar: 'img/avatar.jpg',
   skills: [
-    'PHP',
-    'Laravel',
-    'JavaScript',
-    'Node.js',
-    'Vue 3',
-    'TypeScript',
-    'Tailwind CSS',
-    'MySQL',
-    'PostgreSQL',
-    'Docker',
-    'Git',
+    // Backend & Infrastructure
+    { name: 'PHP', icon: 'php', color: '#777BB4', category: 'backend' },
+    { name: 'Laravel', icon: 'laravel', color: '#FF2D20', category: 'backend' },
+    { name: 'Express JS', icon: 'express', color: '#FFFFFF', category: 'backend' },
+    { name: 'Deno JS', icon: 'deno', color: '#70FFB8', category: 'backend' },
+    { name: 'PostgreSQL', icon: 'postgresql', color: '#4169E1', category: 'backend' },
+    { name: 'MySQL', icon: 'mysql', color: '#4479A1', category: 'backend' },
+    { name: 'Docker', icon: 'docker', color: '#2496ED', category: 'backend' },
+    { name: 'Git', icon: 'git', color: '#F05032', category: 'backend' },
+
+    // Frontend & Web UI
+    { name: 'TypeScript', icon: 'typescript', color: '#3178C6', category: 'frontend' },
+    { name: 'JavaScript', icon: 'javascript', color: '#F7DF1E', category: 'frontend' },
+    { name: 'Vue JS', icon: 'vuedotjs', color: '#4FC08D', category: 'frontend' },
+    { name: 'Nuxt JS', icon: 'nuxt', color: '#00DC82', category: 'frontend' },
+    { name: 'React JS', icon: 'react', color: '#61DAFB', category: 'frontend' },
+    { name: 'Next JS', icon: 'nextdotjs', color: '#FFFFFF', category: 'frontend' },
+    { name: 'Tailwind CSS', icon: 'tailwindcss', color: '#06B6D4', category: 'frontend' },
+    { name: 'Bootstrap', icon: 'bootstrap', color: '#7952B3', category: 'frontend' },
   ],
   projects: [
     {

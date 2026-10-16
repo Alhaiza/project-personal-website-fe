@@ -3,11 +3,11 @@
  * TypeScript menggunakan 'interface' untuk membentuk kontrak tipe data objek.
  */
 export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  tags: string[];
-  link: string;
+  id: number
+  title: string
+  description: string
+  tags: string[]
+  link: string
 }
 
 /**
@@ -15,12 +15,12 @@ export interface Project {
  * Digunakan untuk mendukung riwayat multi-posisi / promosi dalam satu perusahaan.
  */
 export interface ExperiencePosition {
-  id: number;
-  role: string;
-  employmentType?: string; // misal: "Contract", "Full-time"
-  period: string; // misal: "Aug 2026 - Present"
-  description?: string;
-  technologies?: string[];
+  id: number
+  role: string
+  employmentType?: string // misal: "Contract", "Full-time"
+  period: string // misal: "Aug 2026 - Present"
+  description?: string
+  technologies?: string[]
 }
 
 /**
@@ -28,15 +28,15 @@ export interface ExperiencePosition {
  * Mendukung single position langsung atau multi-posisi bertingkat (nested positions) seperti di LinkedIn.
  */
 export interface Experience {
-  id: number;
-  company: string;
+  id: number
+  company: string
   // Format single position langsung (backward compatible)
-  role?: string;
-  period?: string;
-  description?: string;
-  technologies?: string[];
+  role?: string
+  period?: string
+  description?: string
+  technologies?: string[]
   // Format multi-posisi dalam 1 perusahaan yang sama (hierarchical/nested)
-  positions?: ExperiencePosition[];
+  positions?: ExperiencePosition[]
 }
 
 /**
@@ -44,20 +44,34 @@ export interface Experience {
  * Memastikan payload input memiliki tipe string yang pasti.
  */
 export interface ContactMessage {
-  name: string;
-  email: string;
-  message: string;
+  name: string
+  email: string
+  message: string
+}
+
+/**
+ * Interface untuk keahlian teknis (Tech Stack).
+ * - name: Nama teknologi (misal: "Laravel", "Nuxt JS")
+ * - icon: Nama slug icon SimpleIcons / Devicon (misal: "laravel", "nuxt")
+ * - color: Warna aksen brand resmi dalam format Hex (misal: "#FF2D20")
+ * - category: Kategori spesialisasi ('backend' | 'frontend')
+ */
+export interface SkillItem {
+  name: string
+  icon: string
+  color: string
+  category?: 'backend' | 'frontend'
 }
 
 /**
  * Interface untuk data profil utama.
  */
 export interface UserProfile {
-  name: string;
-  role: string;
-  bio: string;
-  avatar: string;
-  skills: string[];
-  projects: Project[];
-  experiences: Experience[];
+  name: string
+  role: string
+  bio: string
+  avatar: string
+  skills: SkillItem[]
+  projects: Project[]
+  experiences: Experience[]
 }

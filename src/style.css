@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+/*
+  ============================================================================
+  [TAILWIND CSS v4 THEME CONFIGURATION]
+  Menggunakan directive '@theme' native Tailwind v4 untuk mendaftarkan:
+  1. @keyframes marquee: Translasi -50% untuk loop tanpa batas (seamless).
+  2. --animate-marquee: Mendaftarkan class bawaan 'animate-marquee' di Tailwind.
+  ============================================================================
+*/
+@theme {
+  --animate-marquee: marquee 35s linear infinite;
+  --animate-marquee-reverse: marquee-reverse 35s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes marquee-reverse {
+    from {
+      transform: translateX(-50%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+}
