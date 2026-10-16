@@ -19,7 +19,7 @@ personal-website/
 │   ├── data/               # Single Source of Truth / Static Mock Database
 │   │   └── profileData.ts  # Dataset profil, proyek, skill, dan pengalaman
 │   ├── layouts/            # Kerangka tata letak halaman global
-│   │   └── Navbar.vue      # Sticky header dengan navigasi smooth scroll
+│   │   └── Navbar.vue      # Sticky header dengan navigasi smooth scroll & mobile drawer toggle
 │   ├── types/              # Deklarasi kontrak tipe data TypeScript global
 │   │   └── profile.ts      # Interface Project, Experience, Contact, UserProfile
 │   ├── views/              # Komponen section halaman utama (Organisms)

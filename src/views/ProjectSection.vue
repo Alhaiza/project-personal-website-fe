@@ -45,10 +45,10 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
 </script>
 
 <template>
-  <section id="projects" class="py-16 px-6 max-w-6xl mx-auto">
+  <section id="projects" class="py-12 sm:py-16 px-4 sm:px-6 max-w-6xl mx-auto scroll-mt-20">
     <!-- Header Section Projects -->
     <h2
-      class="text-2xl md:text-3xl font-bold text-white mb-8 border-l-4 border-indigo-500 pl-4"
+      class="text-2xl md:text-3xl font-bold text-white mb-6 sm:mb-8 border-l-4 border-indigo-500 pl-4"
     >
       Featured Projects
     </h2>
