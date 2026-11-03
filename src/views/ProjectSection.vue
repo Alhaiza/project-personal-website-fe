@@ -5,6 +5,7 @@
  * Komponen ini menerima props:
  * 1. 'projects': Array daftar portofolio (Project[])
  * 2. 'skills': Array daftar tech stack dengan brand color dan icon (SkillItem[])
+ * Bersih dari informasi internal branch dan repo, disajikan secara profesional dan NDA-safe.
  * ============================================================================
  */
 import { computed } from 'vue'
@@ -47,11 +48,16 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
 <template>
   <section id="projects" class="py-12 sm:py-16 px-4 sm:px-6 max-w-6xl mx-auto scroll-mt-20">
     <!-- Header Section Projects -->
-    <h2
-      class="text-2xl md:text-3xl font-bold text-slate-900 mb-6 sm:mb-8 border-l-4 border-blue-600 pl-4"
-    >
-      Featured Projects
-    </h2>
+    <div class="mb-8 sm:mb-10">
+      <h2
+        class="text-2xl md:text-3xl font-bold text-slate-900 border-l-4 border-blue-600 pl-4"
+      >
+        Featured Projects
+      </h2>
+      <p class="text-slate-600 text-sm pl-4 mt-2">
+        Showcase of enterprise-grade software engineering, modern web architectures, and mission-critical production platforms.
+      </p>
+    </div>
 
     <!-- Grid Layout Portfolio -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -61,14 +67,38 @@ const getIconUrl = (iconSlug: string, hexColor: string): string => {
         class="bg-white border border-slate-200/80 rounded-2xl p-6 hover:border-blue-400/60 hover:shadow-md transition-all duration-300 shadow-xs flex flex-col justify-between"
       >
         <div>
-          <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">{{ project.title }}</h3>
-          <p class="text-slate-600 mt-2 text-sm leading-relaxed">
+          <!-- Header Card: Category Pill -->
+          <div v-if="project.category" class="mb-2">
+            <span class="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200/60 uppercase tracking-wider text-[11px]">
+              {{ project.category }}
+            </span>
+          </div>
+
+          <h3 class="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+            {{ project.title }}
+          </h3>
+          <p class="text-slate-600 mt-2.5 text-sm leading-relaxed">
             {{ project.description }}
           </p>
+
+          <!-- Key Highlights -->
+          <ul
+            v-if="project.highlights && project.highlights.length > 0"
+            class="mt-4 space-y-2 text-xs text-slate-600 border-t border-slate-100 pt-3"
+          >
+            <li
+              v-for="(highlight, hIdx) in project.highlights"
+              :key="hIdx"
+              class="flex items-start gap-2 leading-relaxed"
+            >
+              <span class="text-blue-600 font-bold shrink-0">✓</span>
+              <span>{{ highlight }}</span>
+            </li>
+          </ul>
         </div>
 
         <!-- Tags List -->
-        <div class="mt-6 flex flex-wrap gap-2">
+        <div class="mt-6 flex flex-wrap gap-2 pt-3 border-t border-slate-100">
           <span
             v-for="tag in project.tags"
             :key="tag"
