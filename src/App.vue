@@ -2,18 +2,12 @@
 /**
  * ============================================================================
  * [ALUR DATA 1: SUMBER DATA (DATA SOURCE)]
- * Mengimpor 'profileData' mentah dari file eksternal (src/data/profileData.ts).
- * Data ini bertindak sebagai *Mock Database* atau sumber data statis aplikasi.
+ * Mengimpor 'profileData' dari src/data/profileData.ts.
+ * Mengadopsi kanvas hangat (#FFFBF0 / #FDFBF7) bergaya modern Dribbble (ATM GoMeal style).
  * ============================================================================
  */
 import { profileData } from "./data/profileData";
 
-/**
- * ============================================================================
- * [ALUR DATA 2: KOMPONEN STRUKTUR & TAMPILAN]
- * Mengimpor komponen layout dan views yang akan merender data tersebut ke UI.
- * ============================================================================
- */
 import Navbar from "./layouts/Navbar.vue";
 import HeroSection from "./views/HeroSection.vue";
 import ExperienceSection from "./views/ExperienceSection.vue";
@@ -22,60 +16,31 @@ import ContactSection from "./views/ContactSection.vue";
 </script>
 
 <template>
-  <!-- Background utama: Clean Modern Light Canvas (#FFFFFF / #F8FAFC) -->
+  <!-- Background utama: Clean Warm Canvas (#FFFBF0 / #F8FAFC) mengadopsi palet Dribbble -->
   <div
-    class="min-h-screen bg-slate-50/50 text-slate-900 selection:bg-blue-600 selection:text-white"
+    class="min-h-screen bg-[#FFFDF7] text-slate-900 selection:bg-amber-400 selection:text-slate-900 font-sans"
   >
     <Navbar />
 
     <main>
-      <!--
-        ============================================================================
-        [ALUR DATA 3: PENGIRIMAN DATA (PROPS DOWN)]
-        - Data 'profileData' yang diimpor di atas diteruskan ke komponen anak (<HeroSection>)
-          menggunakan prop binding ':profile="profileData"'.
-        - Di dalam komponen HeroSection, data ini diterima dan di-unpack sesuai tipe 'UserProfile'.
-        ============================================================================
-      -->
-
-      <!-- Mengirimkan data profil ke komponen anak melalui props -->
+      <!-- Hero Section with Golden Amber Promo Banner Style & Metrics -->
       <HeroSection :profile="profileData" />
 
-      <!--
-        ============================================================================
-        [ALUR DATA 4: PENGIRIMAN DATA EXPERIENCES]
-        - Mengirim array 'profileData.experiences' ke <ExperienceSection> via props binding.
-        - Komponen ini merender timeline perjalanan karir dan proyek.
-        ============================================================================
-      -->
-      <ExperienceSection :experiences="profileData.experiences" />
-
-      <!--
-        ============================================================================
-        [ALUR DATA 5: DISTRIBUSI SELEKTIF DATA]
-        - Proyek dan skill diambil spesifik dari properti di dalam 'profileData'.
-        - Dikirim ke <ProjectSection> melalui props ':projects' dan ':skills'.
-        - Ini memastikan pemisahan tugas (separation of concerns): komponen anak
-          hanya menerima data yang benar-benar dibutuhkannya saja.
-        ============================================================================
-      -->
+      <!-- Featured Projects & Dynamic Category Filter Bar -->
       <ProjectSection
         :projects="profileData.projects"
         :skills="profileData.skills"
       />
 
-      <!--
-        ============================================================================
-        [ALUR DATA 6: FORMULIR INTERAKTIF (STATEFUL VIEW)]
-        - <ContactSection> mengelola state input dan validasi TypeScript secara lokal.
-        - Menyajikan feedback visual interaktif tanpa memerlukan props eksternal.
-        ============================================================================
-      -->
+      <!-- Professional Journey Timeline -->
+      <ExperienceSection :experiences="profileData.experiences" />
+
+      <!-- Interactive Contact Form with Warm Card Widgets -->
       <ContactSection />
     </main>
 
     <footer
-      class="py-8 text-center text-slate-500 text-sm border-t border-slate-200/80 bg-white mt-16"
+      class="py-8 text-center text-slate-400 text-xs sm:text-sm border-t border-amber-100 bg-white mt-16"
     >
       <p>
         © 2026 Syarif Muhammad Alhaiza. Built with Vue 3, TypeScript & Tailwind CSS.

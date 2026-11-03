@@ -1,12 +1,11 @@
 <script setup lang="ts">
 /**
  * ============================================================================
- * [RESPONSIVE NAVIGATION SYSTEM & STATE MANAGEMENT]
- * Mengelola state interaktif menu navigasi untuk tampilan multi-device:
- * 1. 'isOpen' (ref boolean): Mengontrol buka-tutup mobile menu drawer.
- * 2. 'toggleMenu': Membalikkan status saat tombol hamburger ditekan.
- * 3. 'closeMenu': Menutup drawer secara otomatis ketika user memilih section tujuan,
- *    mencegah drawer menghalangi viewport pengguna saat berpindah link.
+ * [RESPONSIVE NAVIGATION SYSTEM - ATM Clean Modern GoMeal Style]
+ * Mengadopsi prinsip desain dari referensi:
+ * - Brand logo tegas dengan aksen dot warna Amber (`GoMeal.` -> `Alhaiza.`)
+ * - Rounded-full CTA button dengan aksen amber glow
+ * - Navigasi responsive mobile drawer dengan transisi mulus
  * ============================================================================
  */
 import { ref } from 'vue'
@@ -23,30 +22,25 @@ const closeMenu = () => {
 </script>
 
 <template>
-  <!--
-    Sticky Header: Clean White Minimalist
-    - bg-white/90 + backdrop-blur-md: Efek kaca bersih
-    - border-b border-slate-200/80: Garis batas halus
-  -->
   <header
-    class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 transition-all duration-300"
+    class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-amber-100/70 transition-all duration-300"
   >
-    <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-      <!-- Brand Logo -->
-      <a href="#" class="text-slate-900 font-bold tracking-tight text-xl select-none flex items-center gap-1.5">
-        <span class="w-2.5 h-2.5 rounded-full bg-blue-600 inline-block"></span>
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 h-18 flex items-center justify-between">
+      <!-- Brand Logo (ATM Style: GoMeal.) -->
+      <a href="#" class="text-slate-900 font-black tracking-tight text-2xl select-none flex items-center">
         <span>Alhaiza</span>
+        <span class="text-amber-500 font-extrabold text-3xl leading-none">.</span>
       </a>
 
       <!-- Desktop Navigation Menu (md: 768px+) -->
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-600">
-        <a href="#about" class="hover:text-blue-600 transition-colors">About</a>
-        <a href="#experience" class="hover:text-blue-600 transition-colors">Experience</a>
-        <a href="#projects" class="hover:text-blue-600 transition-colors">Projects</a>
-        <a href="#skills" class="hover:text-blue-600 transition-colors">Skills</a>
+      <div class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-600">
+        <a href="#about" class="hover:text-amber-600 transition-colors">About</a>
+        <a href="#projects" class="hover:text-amber-600 transition-colors">Projects</a>
+        <a href="#skills" class="hover:text-amber-600 transition-colors">Tech Stack</a>
+        <a href="#experience" class="hover:text-amber-600 transition-colors">Experience</a>
         <a
           href="#contact"
-          class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-full transition shadow-sm shadow-blue-500/20 active:scale-95"
+          class="px-5 py-2.5 bg-amber-400 hover:bg-amber-500 text-slate-900 font-bold rounded-2xl transition shadow-md shadow-amber-400/25 active:scale-95 cursor-pointer"
         >
           Contact Me
         </a>
@@ -56,7 +50,7 @@ const closeMenu = () => {
       <button
         type="button"
         @click="toggleMenu"
-        class="md:hidden p-2 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500/40 transition"
+        class="md:hidden p-2.5 rounded-2xl text-slate-700 bg-amber-50 hover:bg-amber-100 focus:outline-none transition"
         :aria-expanded="isOpen"
         aria-label="Toggle navigation menu"
       >
@@ -72,13 +66,13 @@ const closeMenu = () => {
     <!-- Mobile Navigation Drawer -->
     <div
       v-if="isOpen"
-      class="md:hidden border-t border-slate-200/80 bg-white/95 backdrop-blur-xl px-4 py-4 space-y-2 shadow-xl transition-all"
+      class="md:hidden border-t border-amber-100 bg-white/98 backdrop-blur-xl px-4 py-4 space-y-2 shadow-2xl transition-all"
     >
-      <a href="#about" @click="closeMenu" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition">About</a>
-      <a href="#experience" @click="closeMenu" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition">Experience</a>
-      <a href="#projects" @click="closeMenu" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition">Projects</a>
-      <a href="#skills" @click="closeMenu" class="block px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50 transition">Skills</a>
-      <a href="#contact" @click="closeMenu" class="block px-3 py-2.5 rounded-lg text-sm font-semibold text-blue-600 hover:bg-blue-50 transition">Contact Me</a>
+      <a href="#about" @click="closeMenu" class="block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-amber-600 hover:bg-amber-50/60 transition">About</a>
+      <a href="#projects" @click="closeMenu" class="block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-amber-600 hover:bg-amber-50/60 transition">Projects</a>
+      <a href="#skills" @click="closeMenu" class="block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-amber-600 hover:bg-amber-50/60 transition">Tech Stack</a>
+      <a href="#experience" @click="closeMenu" class="block px-3.5 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-amber-600 hover:bg-amber-50/60 transition">Experience</a>
+      <a href="#contact" @click="closeMenu" class="block text-center mt-3 px-4 py-2.5 bg-amber-400 text-slate-900 font-bold rounded-xl shadow-md shadow-amber-400/20">Contact Me</a>
     </div>
   </header>
 </template>

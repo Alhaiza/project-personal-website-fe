@@ -1,13 +1,7 @@
 <script setup lang="ts">
 /**
  * ============================================================================
- * [KONSEP VUE 3: ORGANISM SECTION & ITERASI LIST (v-for)]
- * Komponen ExperienceSection bertindak sebagai kontainer presentasional
- * yang menerima array daftar riwayat karir melalui TypeScript typed props.
- *
- * Mengapa komponen dipecah terpisah dari App.vue?
- * - Single Responsibility: App.vue hanya mengorkestrasi, section fokus pada layout.
- * - Efisiensi Re-render: Virtual DOM Vue hanya memperbarui bagian yang datanya berubah.
+ * [EXPERIENCE SECTION - ATM Clean Modern GoMeal Style]
  * ============================================================================
  */
 import type { Experience } from "../types/profile";
@@ -20,29 +14,22 @@ defineProps<{
 
 <template>
   <section id="experience" class="py-16 px-4 sm:px-6 max-w-6xl mx-auto scroll-mt-20">
-    <!-- Section Header dengan gaya estetika modern corporate -->
+    <!-- Section Header -->
     <div class="mb-10">
-      <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2 border-l-4 border-blue-600 pl-4">
+      <div class="flex items-center gap-2 mb-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+        <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Career Trajectory</span>
+      </div>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
         Professional Journey
       </h2>
-      <p class="text-slate-600 text-sm pl-4">
-        Track record of technical experience in software engineering and modern web architecture.
+      <p class="text-slate-500 text-xs sm:text-sm mt-1">
+        Track record of mission-critical software engineering across enterprise systems.
       </p>
     </div>
 
-    <!--
-      ============================================================================
-      [HANDLING ISOLASI DAMPAK: POSITIVE & EDGE CASE]
-      - Positive Case: Menampilkan daftar riwayat jika 'experiences.length > 0'.
-      - Edge Case: Menampilkan placeholder fallback informatif jika data kosong.
-      ============================================================================
-    -->
-    <div v-if="experiences && experiences.length > 0" class="max-w-3xl ml-2">
-      <!--
-        Alur Data:
-        Array 'experiences' di-loop menggunakan 'v-for'. Tiap objek di-pass
-        ke atom child <TimelineItem> melalui prop ':experience="item"'.
-      -->
+    <!-- Timeline List -->
+    <div v-if="experiences && experiences.length > 0" class="max-w-4xl ml-2">
       <TimelineItem
         v-for="(item, index) in experiences"
         :key="item.id"
@@ -53,9 +40,9 @@ defineProps<{
 
     <div
       v-else
-      class="text-center py-12 border border-dashed border-slate-800 rounded-2xl p-6 bg-slate-900/30"
+      class="text-center py-12 border border-dashed border-slate-200 rounded-3xl p-6 bg-amber-50/20"
     >
-      <p class="text-slate-500 text-sm">No experience records available yet.</p>
+      <p class="text-slate-400 text-sm">No experience records available yet.</p>
     </div>
   </section>
 </template>
